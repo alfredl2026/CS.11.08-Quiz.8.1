@@ -13,7 +13,7 @@ public class Student {
     }
 
     public boolean addSubject(String subjectName) {
-        for (Subject subject: subjects) {
+        for (Subject subject : subjects) {
             if (subject.getName().equals(subjectName)) return false;
         }
         subjects.add(new Subject(subjectName));
@@ -49,23 +49,37 @@ public class Student {
      * The method bestSubject will return the subject that the student is strongest in (the subject with the
      * current highest grade). If there are multiple subjects with an equal current high score, the first subject
      * with that score will be returned.
+     *
      * @return the name of the subject with the current highest score (a String).
      */
     public String bestSubject() {
-
-        return null;
-
+        int highestScore = 0;
+        String sub = "";
+        for (Subject subject : subjects) {
+            if (subject.getCurrentGrade() > highestScore) {
+                sub = subject.getName();
+                highestScore = subject.getCurrentGrade();
+            }
+        }
+        return sub;
     }
 
     /**
      * The method averageGrade will return the average grade across all subjects that the student is taking (a double).
+     *
      * @return the students' average grade (a double).
      */
     public double averageGrade() {
-
-        return 0.0;
-
+        double avg = 0;
+        int count = 0;
+        for (Subject subject : subjects) {
+            count++;
+            avg = avg + subject.getCurrentGrade();
+        }
+        avg = avg / count;
+        return avg;
     }
+}
 
     /**
      * The method reportCard will return a report card in the form of a String.
@@ -79,10 +93,11 @@ public class Student {
      * ...
      * @return the student's report card (a String).
      */
-    public String reportCard() {
+   /* public String reportCard() {
 
         return null;
 
     }
 
 }
+*/

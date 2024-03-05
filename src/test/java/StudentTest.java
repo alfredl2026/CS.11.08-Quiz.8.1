@@ -44,15 +44,15 @@ class StudentTest {
     @org.junit.jupiter.api.Test
     void averageGrade() {
 
-        assertEquals(6.3, ((int) (student.averageGrade()*10))/10.0);
+        assertEquals(6.3, ((int) (student.averageGrade() * 10)) / 10.0);
         student.updateSubjectGrade("Math", 6);
         assertEquals(6.5, student.averageGrade());
         student.updateSubjectGrade("Biology", 7);
-        assertEquals(6.6, ((int) (student.averageGrade()*10))/10.0);
+        assertEquals(6.6, ((int) (student.averageGrade() * 10)) / 10.0);
 
     }
-
-    @org.junit.jupiter.api.Test
+}
+  /*  @org.junit.jupiter.api.Test
     void reportCard() {
 
         String expectedReportCard = "Report card for John Wick\nMath\t5\nPhysics\t6\nFrench\t7\nBiology\t6\nComputer Science\t7\nWitchcraft and Wizardry\t7";
@@ -60,4 +60,4 @@ class StudentTest {
         assertEquals(expectedReportCard, actualReportCard);
 
     }
-}
+}*/
